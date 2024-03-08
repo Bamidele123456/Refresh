@@ -1,0 +1,28 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+</head>
+<body>
+    <div>Loading...</div>
+
+    <script>
+        function updateDynamicContent() {
+            fetch('/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('dynamicContent').innerHTML = data.content;
+                });
+        }
+
+        // Initial update
+        updateDynamicContent();
+
+        // Update content every 10 seconds
+        setInterval(updateDynamicContent, 10000);
+    </script>
+</body>
+</html>
